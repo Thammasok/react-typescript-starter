@@ -1,7 +1,7 @@
-import logo from '../Assets/Image/logo.svg'
-import '../Assets/Css/App.css'
+import logo from '../../assets/images/logo.svg'
+import '../../assets/css/app.css'
 
-function App() {
+const HomePage = (): JSX.Element => {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default HomePage

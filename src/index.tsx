@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
-import './Assets/Css/index.css'
-import Home from '@Pages/Home'
+import './assets/css/index.css'
+import Home from './views/home'
 
 ReactDOM.render(
   <React.StrictMode>
