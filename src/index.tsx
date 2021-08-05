@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
+import './i18n'
 import './assets/css/index.css'
 import Home from './views/home'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Suspense fallback="Loading">
+      <Home />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 )
