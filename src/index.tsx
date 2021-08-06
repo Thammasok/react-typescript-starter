@@ -7,15 +7,15 @@ import xxrMainRouter from 'routers'
 
 // Layout & Views
 import Layout from 'layouts'
-import NotFoundPage from 'views/not-found'
+import NotFoundPage from 'views/NotFound'
 
 // PWA
-import * as serviceWorkerRegistration from './serviceWorkerRegistration'
-import reportWebVitals from './reportWebVitals'
+import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
+import reportWebVitals from 'reportWebVitals'
 
 // i18n & Styles
-import './i18n'
-import './assets/css/index.css'
+import 'i18n'
+import 'styles/Main.css'
 
 ReactDOM.render(
   <React.StrictMode>

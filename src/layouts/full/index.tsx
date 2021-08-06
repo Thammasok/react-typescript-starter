@@ -1,4 +1,4 @@
-import xxlFullLayoutProps from './model'
+import xxlFullLayoutProps from 'layouts/Full/types'
 
 const FullLayout = ({ children }: xxlFullLayoutProps.PropTypes) => {
   return (

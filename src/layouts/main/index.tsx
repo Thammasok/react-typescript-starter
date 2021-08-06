@@ -1,4 +1,4 @@
-import xxlMainLayoutProps from './model'
+import xxlMainLayoutProps from 'layouts/Main/types'
 
 const MainLayout = ({ children }: xxlMainLayoutProps.PropTypes) => {
   return (

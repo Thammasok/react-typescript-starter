@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
 // Utils
-import xxuLanguage from 'utils/language'
+import xxuLanguage from 'utils/Language'
 
 // Assets
-import logo from '../../assets/images/logo.svg'
-import '../../assets/css/app.css'
+import nightPic from 'assets/Images/night.png'
+import 'styles/App.css'
 
 const HomePage = (): JSX.Element => {
   const { t } = useTranslation(['common'])
@@ -17,7 +17,7 @@ const HomePage = (): JSX.Element => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={nightPic} className="App-logo" alt="logo" />
         <p>{t('common:welcome')}</p>
         <p>{`Current Lang: ${xxuLanguage.GetCurrentLanguage()}`}</p>
         <p>

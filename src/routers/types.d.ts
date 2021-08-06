@@ -1,8 +1,8 @@
 declare namespace xxrRouterProps {
-  interface Router {
+  interface PropTypes {
     path: string
-    exact: true
-    isAuth: true
+    exact: boolean
+    isAuth: boolean
     layout: string
     component: () => JSX.Element
   }

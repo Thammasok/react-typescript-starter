@@ -1,21 +1,21 @@
 // Interface
-import xxrRouterProps from 'routers/model'
+import xxrRouterProps from 'routers/types'
 
 // Views
-import Home from '../../views/home'
+import Home from 'views/Home'
 
-const xxrAuthRouter: xxrRouterProps.Router[] = [
+const xxrAuthRouter: xxrRouterProps.PropTypes[] = [
   {
     path: '/login',
     exact: true,
-    isAuth: true,
+    isAuth: false,
     layout: 'full',
     component: Home
   },
   {
     path: '/register',
     exact: true,
-    isAuth: true,
+    isAuth: false,
     layout: 'full',
     component: Home
   }

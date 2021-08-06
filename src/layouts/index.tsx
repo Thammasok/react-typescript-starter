@@ -2,9 +2,9 @@ import { Helmet } from 'react-helmet'
 import Cookies from 'js-cookie'
 
 // Components
-import FullLayout from './full'
-import MainLayout from './main'
-import xxlCoreLayoutProps from './model'
+import FullLayout from 'layouts/Full'
+import MainLayout from 'layouts/Main'
+import xxlCoreLayoutProps from 'layouts/types'
 
 const CoreLayout = ({
   isAuth,

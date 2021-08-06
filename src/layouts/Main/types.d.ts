@@ -1,4 +1,4 @@
-import xxlCoreLayoutProps from 'layouts/model'
+import xxlCoreLayoutProps from 'layouts/types'
 
 declare namespace xxlMainLayoutProps {
   interface PropTypes {

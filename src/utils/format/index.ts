@@ -1,4 +1,4 @@
-import xxuFormatProps from './model'
+import xxuFormatProps from 'utils/Format/types'
 
 const xxuFormat = {
   currency: ({

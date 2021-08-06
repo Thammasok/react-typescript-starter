@@ -1,10 +1,10 @@
 // Interface
-import xxrRouterProps from 'routers/model'
+import xxrRouterProps from 'routers/types'
 
 // Views
-import Home from '../../views/home'
+import Home from 'views/Home'
 
-const xxrUserRouter: xxrRouterProps.Router[] = [
+const xxrUserRouter: xxrRouterProps.PropTypes[] = [
   {
     path: '/user',
     exact: true,
