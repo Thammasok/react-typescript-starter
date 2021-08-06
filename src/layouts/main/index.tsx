@@ -1,17 +1,6 @@
-interface MainLayoutProps {
-  children:
-    | string
-    | number
-    | boolean
-    | {}
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | React.ReactNodeArray
-    | React.ReactPortal
-    | null
-    | undefined
-}
+import xxlMainLayoutProps from './model'
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = ({ children }: xxlMainLayoutProps.PropTypes) => {
   return (
     <div>
       Header

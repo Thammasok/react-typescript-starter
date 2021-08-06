@@ -1,17 +1,6 @@
-interface FullLayoutProps {
-  children:
-    | string
-    | number
-    | boolean
-    | {}
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | React.ReactNodeArray
-    | React.ReactPortal
-    | null
-    | undefined
-}
+import xxlFullLayoutProps from './model'
 
-const FullLayout = ({ children }: FullLayoutProps) => {
+const FullLayout = ({ children }: xxlFullLayoutProps.PropTypes) => {
   return (
     <div>
       {children}

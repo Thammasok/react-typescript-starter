@@ -1,11 +1,15 @@
-import { xxrRouter } from "./Model"
+// Interfaces
+import xxrRouterProps from './model'
 
-const router: xxrRouter.routerProps[] = [
-  { name: 'sss', age: 15},
-  { name: 'sss', age: 15},
-  { name: 'sss', age: 15}
+// Routes
+import xxrAuthRouter from './auth'
+import xxrHomeRouter from './home'
+import xxrUserRouter from './user'
+
+const xxrMainRouter: xxrRouterProps.Router[] = [
+  ...xxrHomeRouter,
+  ...xxrAuthRouter,
+  ...xxrUserRouter
 ]
 
-export {
-  router
-} 
+export default xxrMainRouter

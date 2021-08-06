@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 // Utils
-import xxuLanguage from 'utils/lang'
+import xxuLanguage from 'utils/language'
 
 // Assets
 import logo from '../../assets/images/logo.svg'

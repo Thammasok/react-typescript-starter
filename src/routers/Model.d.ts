@@ -1,8 +1,11 @@
-declare namespace xxrRouter {
-  interface routerProps {
-    name: string
-    age: number
+declare namespace xxrRouterProps {
+  interface Router {
+    path: string
+    exact: true
+    isAuth: true
+    layout: string
+    component: () => JSX.Element
   }
 }
 
-export { xxrRouter }
+export default xxrRouterProps

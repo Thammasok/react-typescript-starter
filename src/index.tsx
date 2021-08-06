@@ -1,17 +1,47 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+// Routers
+import xxrMainRouter from 'routers'
+
+// Layout & Views
+import Layout from 'layouts'
+import NotFoundPage from 'views/not-found'
+
+// PWA
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
+// i18n & Styles
 import './i18n'
 import './assets/css/index.css'
-import Home from './views/home'
 
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback="Loading">
-      <Home />
+      <Router>
+        <Switch>
+          {xxrMainRouter.map(route => {
+            return (
+              <Route
+                key={`router-${route.path.replaceAll('/', '-')}`}
+                path={route.path}
+                exact={route.exact}
+                render={() => {
+                  return (
+                    <Layout isAuth={route.isAuth} layout={route.layout}>
+                      <route.component />
+                    </Layout>
+                  )
+                }}
+              />
+            )
+          })}
+
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+      </Router>
     </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
