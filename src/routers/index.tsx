@@ -2,14 +2,14 @@
 import xxrRouterProps from 'routers/types'
 
 // Routes
+import xxrTodoRouter from 'routers/Todo'
 import xxrAuthRouter from 'routers/Auth'
 import xxrHomeRouter from 'routers/Home'
-import xxrUserRouter from 'routers/User'
 
 const xxrMainRouter: xxrRouterProps.PropTypes[] = [
+  ...xxrTodoRouter,
   ...xxrHomeRouter,
-  ...xxrAuthRouter,
-  ...xxrUserRouter
+  ...xxrAuthRouter
 ]
 
 export default xxrMainRouter

@@ -1,6 +1,10 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+// Redux Store
+import configStore from 'redux/Store'
 
 // Routers
 import xxrMainRouter from 'routers'
@@ -17,32 +21,37 @@ import reportWebVitals from 'reportWebVitals'
 import 'i18n'
 import 'styles/Main.css'
 
+// Initial Store
+const store = configStore()
+
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback="Loading">
-      <Router>
-        <Switch>
-          {xxrMainRouter.map(route => {
-            return (
-              <Route
-                key={`router-${route.path.replaceAll('/', '-')}`}
-                path={route.path}
-                exact={route.exact}
-                render={() => {
-                  return (
-                    <Layout isAuth={route.isAuth} layout={route.layout}>
-                      <route.component />
-                    </Layout>
-                  )
-                }}
-              />
-            )
-          })}
+    <Provider store={store}>
+      <Suspense fallback="Loading">
+        <Router>
+          <Switch>
+            {xxrMainRouter.map(route => {
+              return (
+                <Route
+                  key={`router-${route.path.replaceAll('/', '-')}`}
+                  path={route.path}
+                  exact={route.exact}
+                  render={() => {
+                    return (
+                      <Layout isAuth={route.isAuth} layout={route.layout}>
+                        <route.component />
+                      </Layout>
+                    )
+                  }}
+                />
+              )
+            })}
 
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
-      </Router>
-    </Suspense>
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
+        </Router>
+      </Suspense>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
