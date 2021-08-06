@@ -1,9 +1,7 @@
 import xxaTodo from 'actions/Todo'
 import { useDispatch } from 'react-redux'
 
-interface TaskPropTypes {
-  data: string
-}
+import TaskPropTypes from 'views/Todo/Task/types'
 
 const Task: React.FunctionComponent<TaskPropTypes> = ({ data }) => {
   const dispatch = useDispatch()
