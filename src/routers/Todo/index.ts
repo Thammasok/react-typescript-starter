@@ -1,10 +1,10 @@
 // Interface
-import xxrRouterProps from 'routers/types'
+import xxroRouterProps from 'routers/types'
 
 // Views
 import Todo from 'views/Todo'
 
-const xxrTodoRouter: xxrRouterProps.PropTypes[] = [
+const xxroTodoRouter: xxroRouterProps.PropTypes[] = [
   {
     path: '/todo',
     exact: true,
@@ -14,4 +14,4 @@ const xxrTodoRouter: xxrRouterProps.PropTypes[] = [
   }
 ]
 
-export default xxrTodoRouter
+export default xxroTodoRouter

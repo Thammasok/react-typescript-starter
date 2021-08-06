@@ -7,11 +7,11 @@ import {
 
 // Props Types
 import IAction from 'redux/Action/types'
-import xxreTodoReducer from 'redux/Reducers/Todo/types'
+import xxreTodoReducerTypes from 'redux/Reducers/Todo/types'
 
 const todo = (
   state: object = {},
-  action: IAction<xxreTodoReducer.PropTypes>
+  action: IAction<xxreTodoReducerTypes.Props>
 ) => {
   switch (action.type) {
     case TODO_TASK_LISTS:

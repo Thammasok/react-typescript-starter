@@ -1,9 +1,11 @@
-import xxreTodoReducer from 'redux/Reducers/Todo/types'
+import xxreTodoReducerTypes from 'redux/Reducers/Todo/types'
+import xxrePostReducerTypes from './Reducers/Post/types'
 
-declare namespace xxreStore {
-  interface TypeProps {
-    todo: xxreTodoReducer.PropTypes
+declare namespace xxreStoreTypes {
+  interface Props {
+    post: xxrePostReducerTypes.Props
+    todo: xxreTodoReducerTypes.Props
   }
 }
 
-export default xxreStore
+export default xxreStoreTypes

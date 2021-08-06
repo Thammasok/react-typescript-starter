@@ -1,4 +1,4 @@
-declare namespace xxrRouterProps {
+declare namespace xxroRouterProps {
   interface PropTypes {
     path: string
     exact: boolean
@@ -8,4 +8,4 @@ declare namespace xxrRouterProps {
   }
 }
 
-export default xxrRouterProps
+export default xxroRouterProps

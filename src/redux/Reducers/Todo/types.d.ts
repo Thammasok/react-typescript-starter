@@ -1,8 +1,8 @@
-declare namespace xxreTodoReducer {
-  interface PropTypes {
+declare namespace xxreTodoReducerTypes {
+  interface Props {
     type: string
     lists?: Array<string>
   }
 }
 
-export default xxreTodoReducer
+export default xxreTodoReducerTypes

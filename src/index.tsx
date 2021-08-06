@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import configStore from 'redux/Store'
 
 // Routers
-import xxrMainRouter from 'routers'
+import xxroMainRouter from 'routers'
 
 // Layout & Views
 import Layout from 'layouts'
@@ -30,7 +30,7 @@ ReactDOM.render(
       <Suspense fallback="Loading">
         <Router>
           <Switch>
-            {xxrMainRouter.map(route => {
+            {xxroMainRouter.map(route => {
               return (
                 <Route
                   key={`router-${route.path.replaceAll('/', '-')}`}

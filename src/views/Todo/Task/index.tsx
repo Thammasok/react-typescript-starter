@@ -1,7 +1,11 @@
 import xxaTodo from 'actions/Todo'
 import { useDispatch } from 'react-redux'
 
-const Task = ({ data }: { data: string }): JSX.Element => {
+interface TaskPropTypes {
+  data: string
+}
+
+const Task: React.FunctionComponent<TaskPropTypes> = ({ data }) => {
   const dispatch = useDispatch()
 
   const handleTaskCompleted = (event: { target: { value: string } }) => {
@@ -9,7 +13,7 @@ const Task = ({ data }: { data: string }): JSX.Element => {
   }
 
   return (
-    <li key={`task-${(Math.random() * 10).toString()}`}>
+    <li>
       <label htmlFor={`task-checkbox-${data}`}>
         <input
           id={`task-checkbox-${data}`}

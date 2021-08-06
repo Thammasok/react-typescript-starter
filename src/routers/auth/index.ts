@@ -1,10 +1,10 @@
 // Interface
-import xxrRouterProps from 'routers/types'
+import xxroRouterProps from 'routers/types'
 
 // Views
 import Home from 'views/Home'
 
-const xxrAuthRouter: xxrRouterProps.PropTypes[] = [
+const xxroAuthRouter: xxroRouterProps.PropTypes[] = [
   {
     path: '/login',
     exact: true,
@@ -21,4 +21,4 @@ const xxrAuthRouter: xxrRouterProps.PropTypes[] = [
   }
 ]
 
-export default xxrAuthRouter
+export default xxroAuthRouter

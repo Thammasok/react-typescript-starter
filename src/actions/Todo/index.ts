@@ -1,4 +1,9 @@
 import { Dispatch } from 'redux'
+import {
+  POST_CLEAR_DATA,
+  POST_GET_FAIL,
+  POST_GET_SUCCESS
+} from 'redux/Constants/Post'
 
 // Redux Constants
 import {
@@ -6,6 +11,12 @@ import {
   TODO_TASK_COMPLETED,
   TODO_TASK_LISTS
 } from 'redux/Constants/Todo'
+
+// Service
+import xxsPostService from 'services/Posts'
+
+// Utils
+import xxuResponse from 'utils/Response'
 
 const xxaTodo = {
   GetTaskLists: () => async (dispatch: Dispatch, getState: Function) => {
@@ -42,7 +53,29 @@ const xxaTodo = {
           lists: todoLists
         }
       })
+    },
+  GetPostList: () => async (dispatch: Dispatch) => {
+    // Clear data of example in Redux
+    dispatch({
+      type: POST_CLEAR_DATA
+    })
+
+    const response = await xxsPostService.GetPostLists()
+    if (response.status === 200) {
+      xxuResponse.Success({
+        type: POST_GET_SUCCESS,
+        dispatch,
+        payload: response
+      })
+    } else {
+      xxuResponse.Error({
+        type: POST_GET_FAIL,
+        errorPage: true,
+        dispatch,
+        error: response.error
+      })
     }
+  }
 }
 
 export default xxaTodo

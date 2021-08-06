@@ -5,14 +5,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import xxaTodo from 'actions/Todo'
 
 // Types
-import xxreStore from 'redux/types'
+import xxreStoreTypes from 'redux/types'
 
 // Components
 import Task from 'views/Todo/Task'
+import Post from 'views/Todo/Post'
 
 const TodoPage = (): JSX.Element => {
   const dispatch = useDispatch()
-  const todo = useSelector((state: xxreStore.TypeProps) => state.todo)
+  const todo = useSelector((state: xxreStoreTypes.Props) => state.todo)
+  const post = useSelector((state: xxreStoreTypes.Props) => state.post)
 
   const [newTask, setNewTask] = useState('')
 
@@ -23,32 +25,48 @@ const TodoPage = (): JSX.Element => {
   }
 
   useEffect(() => {
-    const loadSpots = () => {
+    const loadTodoLists = () => {
       dispatch(xxaTodo.GetTaskLists())
+      dispatch(xxaTodo.GetPostList())
     }
-    loadSpots()
+    loadTodoLists()
   }, [dispatch])
 
   return (
     <div>
-      <h2>Todo</h2>
-      <form onSubmit={handleForm}>
-        <input
-          type="text"
-          placeholder="Enter your new task."
-          value={newTask}
-          onChange={event => setNewTask(event.target.value)}
-        />
-      </form>
-      <hr />
-      <h3>Todo Lists</h3>
-      <ul>
-        {todo
-          ? todo.lists?.map((data: string) => (
-              <Task key={(Math.random() * 10).toString()} data={data} />
+      <div>
+        <h2>Todo</h2>
+        <form onSubmit={handleForm}>
+          <input
+            type="text"
+            placeholder="Enter your new task."
+            value={newTask}
+            onChange={event => setNewTask(event.target.value)}
+          />
+        </form>
+        <hr />
+        <h3>Todo Lists</h3>
+        <ul>
+          {todo
+            ? todo.lists?.map((data: string) => (
+                <Task key={(Math.random() * 10).toString()} data={data} />
+              ))
+            : null}
+        </ul>
+      </div>
+
+      <div>
+        <h2>Post Lists</h2>
+        <ul>
+          {post ? (
+            post.lists?.map(data => (
+              <Post key={data.id.toString()} data={data} />
             ))
-          : null}
-      </ul>
+          ) : (
+            <li>No data.</li>
+          )}
+        </ul>
+      </div>
     </div>
   )
 }
