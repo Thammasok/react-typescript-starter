@@ -16,9 +16,6 @@ const xxuResponse = {
   },
   Error: (data: xxuResponseTypes.Error.GetPayload) => {
     const { type, dispatch, error, errorPage, attach } = data
-    // 400 Normal Error
-    // 401 Login / Logout token
-    // 403 No permission
 
     if (error.data?.msg === 'Network Error') {
       // Network Error
@@ -45,7 +42,10 @@ const xxuResponse = {
           }
         })
       }
-    } else if (error.status === 400) {
+    } else if (error.status === 401) {
+      // 401 Logout, clear user token
+      console.log('TODO: Token Exits')
+    } else {
       // Normal Error
       dispatch({
         type,
@@ -57,50 +57,6 @@ const xxuResponse = {
               ...error
             },
             msg: error.data?.msg,
-            ...attach
-          }
-        }
-      })
-    } else if (error.status === 401) {
-      console.log('TODO: Token Exits')
-    } else if (error.status === 403) {
-      dispatch({
-        type,
-        payload: {
-          error: {
-            err: true,
-            status: error.status,
-            data: {
-              ...error.data
-            },
-            ...attach
-          }
-        }
-      })
-    } else if (error.status >= 500) {
-      dispatch({
-        type,
-        payload: {
-          error: {
-            err: true,
-            status: error.status,
-            data: {
-              ...error.data
-            },
-            ...attach
-          }
-        }
-      })
-    } else {
-      dispatch({
-        type,
-        payload: {
-          error: {
-            err: true,
-            status: error.status,
-            data: {
-              ...error.data
-            },
             ...attach
           }
         }
