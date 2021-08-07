@@ -1,4 +1,4 @@
-import { get } from 'local-storage'
+import { get, set } from 'local-storage'
 
 const xxuLanguage = {
   GetCurrentLanguage: (): string => {
@@ -6,7 +6,7 @@ const xxuLanguage = {
     return lang
   },
   SetCurrentLanguage: (lang: string) => {
-    localStorage.setItem('i18nextLng', lang.toLowerCase())
+    set<string>('i18nextLng', lang.toLowerCase())
     window.location.reload()
   }
 }
