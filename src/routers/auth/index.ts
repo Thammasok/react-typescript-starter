@@ -2,7 +2,7 @@
 import xxroRouterProps from 'routers/types'
 
 // Views
-import Home from 'views/Home'
+import Home from 'views/HomePage'
 
 const xxroAuthRouter: xxroRouterProps.PropTypes[] = [
   {

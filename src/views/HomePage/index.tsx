@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 // Utils
-import xxuLanguage from 'utils/Language'
+import xxuLanguage from 'utils/Lang'
 
 // Assets
 import nightPic from 'assets/Images/night.png'

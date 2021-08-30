@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+// GraphQL
+import GraphQLProvider from 'gql'
+
 // Redux Store
 import configStore from 'redux/Store'
 
@@ -26,32 +29,34 @@ const store = configStore()
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Suspense fallback="Loading">
-        <Router>
-          <Switch>
-            {xxroMainRouter.map(route => {
-              return (
-                <Route
-                  key={`router-${route.path.replaceAll('/', '-')}`}
-                  path={route.path}
-                  exact={route.exact}
-                  render={() => {
-                    return (
-                      <Layout isAuth={route.isAuth} layout={route.layout}>
-                        <route.component />
-                      </Layout>
-                    )
-                  }}
-                />
-              )
-            })}
+    <GraphQLProvider>
+      <Provider store={store}>
+        <Suspense fallback="Loading">
+          <Router>
+            <Switch>
+              {xxroMainRouter.map(route => {
+                return (
+                  <Route
+                    key={`router-${route.path.replaceAll('/', '-')}`}
+                    path={route.path}
+                    exact={route.exact}
+                    render={() => {
+                      return (
+                        <Layout isAuth={route.isAuth} layout={route.layout}>
+                          <route.component />
+                        </Layout>
+                      )
+                    }}
+                  />
+                )
+              })}
 
-            <Route path="*" component={NotFoundPage} />
-          </Switch>
-        </Router>
-      </Suspense>
-    </Provider>
+              <Route path="*" component={NotFoundPage} />
+            </Switch>
+          </Router>
+        </Suspense>
+      </Provider>
+    </GraphQLProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
