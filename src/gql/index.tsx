@@ -5,6 +5,9 @@ import {
   createHttpLink
 } from '@apollo/client'
 
+// Configs
+import { SERVICE_GRAPHQL } from 'configs'
+
 export interface GraphQLProviderProps {
   children:
     | string
@@ -19,7 +22,7 @@ export interface GraphQLProviderProps {
 }
 
 export const link = createHttpLink({
-  uri: 'https://48p1r2roz4.sse.codesandbox.io'
+  uri: SERVICE_GRAPHQL
 })
 
 export const client = new ApolloClient({
@@ -28,7 +31,6 @@ export const client = new ApolloClient({
 })
 
 const GraphQLProvider = ({ children }: GraphQLProviderProps) => {
-  console.log('client', client)
   return <ApolloProvider client={client}>{children}</ApolloProvider>
 }
 
